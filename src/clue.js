@@ -99,13 +99,20 @@ const roomsArray = [DinningRoom, Conservatory, Kitchen, Study, Library, Billiard
 // Weapons Collection
 const weaponsArray = [rope, knife, candlestick, dumbbell, poison, axe, bat, trophy, pistol];
 
+// Random Selector
+
+function randomSelector(mazo){
+    if(mazo.length == 0 || mazo == null){
+        return undefined;
+    }else{
+        let r = Math.floor(Math.random() * mazo.length); // numero aleatorio 1-9
+        return mazo[r];
+    }
+}
 
 export default {
     charactersArray,
     weaponsArray,
-    roomsArray
+    roomsArray,
+    randomSelector
 };
-
-// tendré que escribir:
-// import clue from clue.js (si se exportara sin default sería "import * as clue from clue.js")
-// luego cada función se llama desde clue. por ejemplo: clue.functionExmaple()
