@@ -99,6 +99,9 @@ const roomsArray = [DinningRoom, Conservatory, Kitchen, Study, Library, Billiard
 // Weapons Collection
 const weaponsArray = [rope, knife, candlestick, dumbbell, poison, axe, bat, trophy, pistol];
 
+// Card Deck Collection
+const deckArray = [charactersArray, weaponsArray, roomsArray]
+
 // Random Selector
 
 function randomSelector(mazo){
@@ -110,9 +113,19 @@ function randomSelector(mazo){
     }
 }
 
+function pickMistery(){
+    let mistery = new Array;
+    for(let i = 0; i < deckArray.length; i++){
+        mistery.push(randomSelector(deckArray[i]));
+    };
+    return mistery;
+}
+
 export default {
     charactersArray,
     weaponsArray,
     roomsArray,
-    randomSelector
+    deckArray,
+    randomSelector,
+    pickMistery
 };
