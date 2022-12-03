@@ -105,12 +105,8 @@ const deckArray = [charactersArray, weaponsArray, roomsArray]
 // Random Selector
 
 function randomSelector(mazo){
-    if(mazo.length == 0 || mazo == null){
-        return undefined;
-    }else{
-        let r = Math.floor(Math.random() * mazo.length); // numero aleatorio 1-9
-        return mazo[r];
-    }
+    let r = Math.floor(Math.random() * mazo.length);
+    return mazo[r];
 }
 
 function pickMistery(){
@@ -121,11 +117,42 @@ function pickMistery(){
     return mistery;
 }
 
+function revealMistery(mistery){
+    return mistery[0].first_name + " " + mistery[0].last_name + " killed Mr.Boddy using the " + mistery[1].name + " in the " + mistery[2].name + "!!!!";
+}
+
 export default {
     charactersArray,
     weaponsArray,
     roomsArray,
     deckArray,
     randomSelector,
-    pickMistery
+    pickMistery,
+    revealMistery
 };
+
+
+
+/* export default {
+    charactersArray,
+    weaponsArray,
+    roomsArray,
+    deckArray,
+    randomSelector: function(mazo){
+        let r = Math.floor(Math.random() * mazo.length);
+        return mazo[r];
+    },
+    
+    pickMistery: function(){
+        let mistery = new Array;
+        for(let i = 0; i < deckArray.length; i++){
+            mistery.push(this.randomSelector(deckArray[i]));
+        };
+        console.log(mistery)
+        return mistery;
+    },
+    
+    revealMistery: function(mistery){
+        return mistery[0].first_name + " " + mistery.last_name + " killed Mr.Boddy using the " + mistery[1] + " in the " + mistery[2] + "!!!!";
+    }
+}; */
